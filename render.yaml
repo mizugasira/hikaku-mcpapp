@@ -1,0 +1,18 @@
+# Render Blueprint: Render ダッシュボード → New → Blueprint でこのリポジトリを選ぶとデプロイされる
+services:
+  - type: web
+    name: hikaku-mcpapp
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: MCP_PATH_TOKEN
+        generateValue: true
+      - key: RAKUTEN_APP_ID
+        sync: false
+      - key: RAKUTEN_ACCESS_KEY
+        sync: false
+      - key: RAKUTEN_REFERER
+        sync: false
+      - key: YAHOO_APP_ID
+        sync: false

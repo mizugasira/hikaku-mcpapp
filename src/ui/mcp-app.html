@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>価格比較</title>
+</head>
+<body>
+  <main class="main">
+    <form id="search-form" class="search">
+      <input id="q" type="search" placeholder="商品名を入力 (例: AirPods Pro)" required autocomplete="off">
+      <input id="min" type="number" min="0" step="100" placeholder="下限 ¥" aria-label="最低価格">
+      <input id="max" type="number" min="0" step="100" placeholder="上限 ¥" aria-label="最高価格">
+      <button type="submit" id="search-btn">検索</button>
+    </form>
+
+    <section id="summary" class="summary" hidden>
+      <div class="stat"><span class="label">最安値</span><span id="s-min" class="value accent"></span></div>
+      <div class="stat"><span class="label">中央値</span><span id="s-med" class="value"></span></div>
+      <div class="stat"><span class="label">最高値</span><span id="s-max" class="value"></span></div>
+      <div class="stat"><span class="label">件数</span><span id="s-count" class="value"></span></div>
+    </section>
+
+    <div class="toolbar" id="toolbar" hidden>
+      <div id="filters" class="chips"></div>
+      <select id="sort" aria-label="並び替え">
+        <option value="price-asc">価格が安い順</option>
+        <option value="price-desc">価格が高い順</option>
+        <option value="review">レビューが多い順</option>
+      </select>
+    </div>
+
+    <p id="status" class="status">商品名を入力して検索してください。</p>
+    <ul id="results" class="results"></ul>
+
+    <footer id="links" class="links" hidden></footer>
+  </main>
+  <script type="module" src="./mcp-app.ts"></script>
+</body>
+</html>

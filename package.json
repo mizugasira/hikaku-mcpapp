@@ -1,0 +1,48 @@
+{
+  "name": "hikaku-mcpapp",
+  "version": "1.0.0",
+  "description": "ショッピングサービス横断の価格比較 MCP App",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "npm run build:ui && npm run build:server",
+    "build:ui": "vite build",
+    "build:server": "esbuild src/main.ts --bundle --platform=node --format=esm --packages=external --outfile=dist/main.js",
+    "typecheck": "tsc",
+    "start": "node dist/main.js",
+    "start:stdio": "node dist/main.js --stdio",
+    "dev": "npm run build:ui && tsx src/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizugasira/hikaku-mcpapp.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mizugasira/hikaku-mcpapp/issues"
+  },
+  "homepage": "https://github.com/mizugasira/hikaku-mcpapp#readme",
+  "dependencies": {
+    "@modelcontextprotocol/client": "^2.3.1",
+    "@modelcontextprotocol/express": "^2.0.2",
+    "@modelcontextprotocol/ext-apps": "^2.0.3",
+    "@modelcontextprotocol/node": "^2.1.1",
+    "@modelcontextprotocol/server": "^2.3.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.4",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.3",
+    "vite-plugin-singlefile": "^2.3.3"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
